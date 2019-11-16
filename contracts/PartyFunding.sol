@@ -33,7 +33,7 @@ contract PartyFunding {
         uint amountToRaise
     ) external {
         //uint raiseUntil = now.add(durationInDays.mul(1 days));
-        Project newProject = new Project(msg.sender, title, description, raiseUntil, amountToRaise);
+        Project newProject = new Project(msg.sender, title, amountToRaise);
         projects.push(newProject);
         emit ProjectStarted(
             address(newProject),
