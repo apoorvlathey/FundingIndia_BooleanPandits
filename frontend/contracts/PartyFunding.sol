@@ -1,4 +1,3 @@
-// We will be using Solidity version 0.5.4
 pragma solidity 0.5.8;
 // Importing OpenZeppelin's SafeMath Implementation
 import "installed_contracts/zeppelin/contracts/math/SafeMath.sol";
@@ -15,37 +14,28 @@ contract PartyFunding {
         address contractAddress,
         address projectStarter,
         string projectTitle,
-        //string projectDesc,
-        //uint256 deadline,
         uint256 goalAmount
     );
 
-    /** @dev Function to start a new project.
+    /** Function to start a new project.
       * @param title Title of the project to be created
-      * 
-      * 
       * @param amountToRaise Project goal in wei
       */
     function startProject(
         string calldata title,
-        //string calldata description,
-        //uint durationInDays,
         uint amountToRaise
     ) external {
-        //uint raiseUntil = now.add(durationInDays.mul(1 days));
         Project newProject = new Project(msg.sender, title, amountToRaise);
         projects.push(newProject);
         emit ProjectStarted(
             address(newProject),
             msg.sender,
             title,
-            //description,
-            //raiseUntil,
             amountToRaise
         );
-    }                                                                                                                                   
+    }
 
-    /** @dev Function to get all projects' contract addresses.
+    /** Function to get all projects' contract addresses.
       * @return A list of all projects' contract addreses
       */
     function returnAllProjects() external view returns(Project[] memory){
@@ -96,8 +86,6 @@ contract Project {
     (
         address payable projectStarter,
         string memory projectTitle,
-        //string memory projectDesc,
-        //uint fundRaisingDeadline,
         uint goalAmount
     ) public {
         creator = projectStarter;
@@ -108,7 +96,7 @@ contract Project {
         currentBalance = 0;
     }
 
-    /** @dev Function to fund a certain project.
+    /** Function to fund a certain project.
       */
     function contribute() external inState(State.Fundraising) payable {
         require(msg.sender != creator);
@@ -118,20 +106,16 @@ contract Project {
         checkIfFundingCompleteOrExpired();
     }
 
-    /** @dev Function to change the project state depending on conditions.
+    /** Function to change the project state depending on conditions.
       */
     function checkIfFundingCompleteOrExpired() public {
         if (currentBalance >= amountGoal) {
             state = State.Successful;
             payOut();
         }
-        //  else if (now > raiseBy)  {
-        //     state = State.Expired;
-        // }
-        // completeAt = now;
     }
 
-    /** @dev Function to give the received funds to project starter.
+    /** Function to give the received funds to project starter.
       */
     function payOut() internal inState(State.Successful) returns (bool) {
         uint256 totalRaised = currentBalance;
@@ -148,7 +132,7 @@ contract Project {
         return false;
     }
 
-    /** @dev Function to retrieve donated amount when a project expires.
+    /** Function to retrieve donated amount when a project expires.
       */
     function getRefund() public inState(State.Expired) returns (bool) {
         require(contributions[msg.sender] > 0);
@@ -166,23 +150,19 @@ contract Project {
         return true;
     }
 
-    /** @dev Function to get specific information about the project.
+    /** Function to get specific information about the project.
       * @return Returns all the project's details
       */
     function getDetails() public view returns 
     (
         address payable projectStarter,
         string memory projectTitle,
-        //string memory projectDesc,
-        //uint256 deadline,
         State currentState,
         uint256 currentAmount,
         uint256 goalAmount
     ) {
         projectStarter = creator;
         projectTitle = title;
-        //projectDesc = description;
-        //deadline = raiseBy;
         currentState = state;
         currentAmount = currentBalance;
         goalAmount = amountGoal;
