@@ -82,13 +82,12 @@
                   <option>Bahujan Samajhwadi Party</option>
                 </select>
               </div>
-                <input type="submit" value="Contribute" onclick="allnumeric(document.form1.adhaar)" />
               </form>
             </div>
             
           </div>
 
-          <div id="paypal-button" style="position: relative; left:20vw;"></div>
+          <div id="paypal-button" style="position: relative; left:20vw;height: 100px;"></div>
         </div>
       </div>
 	</div>
@@ -148,16 +147,17 @@
         transactions: [{
           amount: {
             total: document.getElementById("amount").value,
-            currency: 'INR'
+            currency: 'USD'
           }
         }]
       });
     },
     // Execute the payment
     onAuthorize: function(data, actions) {
-        
+        console.log(data);
       return actions.payment.execute().then(function() {
         // Show a confirmation message to the buyer
+
         window.alert('Thank you for your purchase!');
       });
     }
