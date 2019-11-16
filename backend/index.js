@@ -4,6 +4,10 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const mailer = require('./nodemailer');
 const body = require('body-parser');
+const maticTransfer = require('./transfer-ERC20');
+const maticBalance  = require('./balance-of-ERC20');
+const config = require('./config.js')
+
 
 app.use(body.json());
 app.use(body.urlencoded());
@@ -51,7 +55,8 @@ app.post('/verify' , async (req , res)=>{
       res.send("emailSend");
       userdetails.save();
   }
-})
+});
+
 
 app.get('/redirecting/:id*' , async (req , res) =>{
     console.log(req.params.id);
@@ -75,5 +80,25 @@ app.get('/form' , (req , res)=>{
 app.get('/mail' , (req , res)=>{
     res.sendFile(__dirname + '/mail.html');
 })
+
+app.post('/blockchainTransfer' , (req , res)=>{
+    const name = req.body.name;
+    var add = ""
+    if(name === "bjp")
+        add = "0xA09aB1aBeCb91CaC38c3240912D2A1b31e22F147"
+    else if(name === "con")
+        add = "0x038bCb5eDF4e069BfF32CFCd016ACB4B6d0ccC43"
+    else if(name === "sam")        
+        add = "0x36dCeE2b84b1E19516025c5384A7c4225AcB5Ce7"
+    else if(name === "aap")
+        add = "0xA7587b401860b95e0135a3d15b6fc76b9C8E4157"
+    if(add)
+    maticTransfer( add, req.body.amount);
+});
+
+app.post('/blockchainBalance' , (req , res)=>{
+    maticBalance(req.body.address);
+});
+
 const port = process.env.PORT || 5003;
 app.listen(port , ()=>console.log("server up"));
