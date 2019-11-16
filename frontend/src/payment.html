@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> </title>
+    <!-- custom-theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Party Funding" />
+    <script type="application/x-javascript">
+      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+      	function hideURLbar(){ window.scrollTo(0,1); }
+    </script>
+    <!-- //custom-theme -->
+    <link
+      href="css/bootstrap.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/mainStyles.css" />
+    <link
+      rel="stylesheet"
+      href="css/dscountdown.css"
+      type="text/css"
+      media="all"
+    />
+
+    <link
+      rel="stylesheet"
+      href="css/flexslider.css"
+      type="text/css"
+      media="screen"
+      property=""
+    />
+    <!-- gallery -->
+    <link href="css/lsb.css" rel="stylesheet" type="text/css" />
+    <!-- //gallery -->
+    <!-- font-awesome-icons -->
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <link
+      href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,900"
+      rel="stylesheet"
+    />
+    <style>
+      .container {
+        margin-top: 10vh;
+      }
+
+      @media (min-width: 500px) {
+        .container {
+          width: 50vw;
+          margin-top: 10vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="signin-form profile">
+            <h3 class="agileinfo_sign">Donation Details</h3>
+            <div class="login-form">
+              <form action="#" method="post" name="form1">
+                <input type="text" name="name" placeholder="From" required="" />
+                <input
+                  type="number"
+                  name="amount"
+                  placeholder="Amount"
+                  required=""
+                  style="width:100%;height: 50px;text-align: center;"
+                />
+                <br><br>
+                <label for="exampleFormControlSelect1">Select Party:</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>BJP</option>
+                  <option>Congress</option>
+                  <option>Samajhwadi</option>
+                  <option>Aam Aadmin Party</option>
+                  <option>Bahujan Samajhwadi Party</option>
+                </select>
+              </div>
+                <input type="submit" value="Contribute" onclick="allnumeric(document.form1.adhaar)" />
+              </form>
+            </div>
+            
+          </div>
+
+          <div id="paypal-button" style="position: relative; left:20vw;"></div>
+        </div>
+      </div>
+	</div>
+	
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".scroll").click(function(event) {
+          event.preventDefault();
+          $("html,body").animate(
+            { scrollTop: $(this.hash).offset().top },
+            1000
+          );
+        });
+      });
+    </script>
+    <script>
+      function allnumeric(inputtxt) {
+        var numbers = /^[0-9]+$/;
+        if (inputtxt.value.match(numbers)) {
+          alert("Your Registration number has accepted....");
+          document.form1.adhaar.focus();
+          return true;
+        } else {
+          
+          document.form1.adhaar.focus();
+          return false;
+        }
+      }
+    </script>
+
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+  paypal.Button.render({
+    // Configure environment
+    env: 'sandbox',
+    client: {
+      sandbox: 'demo_sandbox_client_id',
+      production: 'demo_production_client_id'
+    },
+    // Customize button (optional)
+    locale: 'en_US',
+    style: {
+      size: 'small',
+      color: 'gold',
+      shape: 'pill',
+    },
+
+    // Enable Pay Now checkout flow (optional)
+    commit: true,
+
+    // Set up a payment
+    payment: function(data, actions) {
+      return actions.payment.create({
+        transactions: [{
+          amount: {
+            total: '0.01',
+            currency: 'USD'
+          }
+        }]
+      });
+    },
+    // Execute the payment
+    onAuthorize: function(data, actions) {
+      return actions.payment.execute().then(function() {
+        // Show a confirmation message to the buyer
+        window.alert('Thank you for your purchase!');
+      });
+    }
+  }, '#paypal-button');
+
+</script>
+  </body>
+</html>
