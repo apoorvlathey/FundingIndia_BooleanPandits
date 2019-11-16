@@ -1,7 +1,7 @@
 {
-  "name": "backend",
+  "name": "maticjs-node",
   "version": "1.0.0",
-  "description": "",
+  "description": "Example code to interact with Matic Network in node environment",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,15 +11,9 @@
     "js",
     "node"
   ],
-  "author": "",
+  "author": "Sayli Patil <sayli@matic.network>",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^3.0.6",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.7.11",
-    "nodemailer": "^6.3.1",
-    "nodemon": "^1.19.4",
     "maticjs": "1.0.0-beta.16",
     "web3": "1.0.0-beta.34"
   }
