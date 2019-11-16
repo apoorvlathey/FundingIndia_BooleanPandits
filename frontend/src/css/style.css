@@ -334,7 +334,8 @@ h3.agileinfo_sign  {
     -moz-background-size: cover;
     -o-background-size: cover;
     -ms-background-size: cover;
-    min-height: 300px;
+	min-height: 300px;
+	margin-top:50px;
 }
 /*-- nav --*/
 .navbar-default {
