@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> </title>
+    <!-- custom-theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Party Funding" />
+    <script type="application/x-javascript">
+      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+      	function hideURLbar(){ window.scrollTo(0,1); }
+    </script>
+    <!-- //custom-theme -->
+    <link
+      href="css/bootstrap.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/mainStyles.css" />
+    <link
+      rel="stylesheet"
+      href="css/dscountdown.css"
+      type="text/css"
+      media="all"
+    />
+
+    <link
+      rel="stylesheet"
+      href="css/flexslider.css"
+      type="text/css"
+      media="screen"
+      property=""
+    />
+    <!-- gallery -->
+    <link href="css/lsb.css" rel="stylesheet" type="text/css" />
+    <!-- //gallery -->
+    <!-- font-awesome-icons -->
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <link
+      href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,900"
+      rel="stylesheet"
+    />
+    <style>
+      .container {
+        margin-top: 10vh;
+      }
+
+      @media (min-width: 500px) {
+        .container {
+          width: 50vw;
+          margin-top: 10vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="signin-form profile">
+            <h3 class="agileinfo_sign">STEP 1:ENTER CREDENTIALS</h3>
+            <div class="login-form">
+              <form action="/verify" method="post" name="form1">
+                <input type="text" name="name" placeholder="Name" required="" />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  required=""
+                />
+				<input
+				  id="adhaar"
+                  type="text"
+                  name="adhaar"
+                  placeholder="Adhaar No."
+                  required=""
+                />
+                <input type="submit" value="Proceed" onclick="allnumeric(document.form1.adhaar)" />
+              </form>
+            </div>
+            <p>
+              <a href="#"> By clicking register, I agree to your terms</a>
+            </p>
+          </div>
+        </div>
+      </div>
+	</div>
+	
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".scroll").click(function(event) {
+          event.preventDefault();
+          $("html,body").animate(
+            { scrollTop: $(this.hash).offset().top },
+            1000
+          );
+        });
+      });
+    </script>
+    <script>
+      function allnumeric(inputtxt) {
+        var numbers = /^[0-9]+$/;
+        if (inputtxt.value.match(numbers)) {
+          alert("Your Registration number has accepted....");
+          document.form1.adhaar.focus();
+          return true;
+        } else {
+          
+          document.form1.adhaar.focus();
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>
