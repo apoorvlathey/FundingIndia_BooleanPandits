@@ -7,7 +7,7 @@ const body = require('body-parser');
 
 app.use(body.json());
 app.use(body.urlencoded());
-
+app.use(express.static('public'));
 mongoose.connect('mongodb+srv://rachit2501:hacktiet@cluster0-djeid.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser:true})
     .then(()=>console.log("Connected to databse"))
     .catch(()=>console.log("Failed to connect to database"));
@@ -57,7 +57,23 @@ app.get('/redirecting/:id*' , async (req , res) =>{
     console.log(req.params.id);
     const user = passModel.findOne({password:req.params.id});
     if(user)
-    res.send("dsjlkfdsk");
+    res.redirect('/paymentGateway');
+});
+
+app.get('/paymentGateway' , (req,res)=>{
+    console.log("asds");
+    res.sendFile(__dirname + '/payment.html');
 })
-const port = process.env.PORT || 5001;
+app.get('/' , (req , res)=>{
+    res.sendFile(__dirname + '/index1.html');
+})
+
+app.get('/form' , (req , res)=>{
+    res.sendFile(__dirname + '/form.html');
+});
+
+app.get('/mail' , (req , res)=>{
+    res.sendFile(__dirname + '/mail.html');
+})
+const port = process.env.PORT || 5003;
 app.listen(port , ()=>console.log("server up"));
