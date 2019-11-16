@@ -65,6 +65,7 @@
               <form action="#" method="post" name="form1">
                 <input type="text" name="name" placeholder="From" required="" />
                 <input
+                id="amount"
                   type="number"
                   name="amount"
                   placeholder="Amount"
@@ -122,6 +123,7 @@
 
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script>
+
   paypal.Button.render({
     // Configure environment
     env: 'sandbox',
@@ -145,14 +147,15 @@
       return actions.payment.create({
         transactions: [{
           amount: {
-            total: '0.01',
-            currency: 'USD'
+            total: document.getElementById("amount").value,
+            currency: 'INR'
           }
         }]
       });
     },
     // Execute the payment
     onAuthorize: function(data, actions) {
+        
       return actions.payment.execute().then(function() {
         // Show a confirmation message to the buyer
         window.alert('Thank you for your purchase!');
