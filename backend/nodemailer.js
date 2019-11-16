@@ -1,7 +1,7 @@
 var nodemailer = require('nodemailer');
+const link  = "localhost:5001";
 
-
-function mailer(email){
+function mailer(email , msg){
     let transporter = nodemailer.createTransport({
         host: 'smtp.mailtrap.io',
         port: 2525,
@@ -15,7 +15,7 @@ var mailOptions = {
   from: 'youremail@gmail.com',
   to: email,
   subject: 'Verification Code',
-  text: '2398'
+  text: `${link}/redirecting/${msg}`
 };
 
 transporter.sendMail(mailOptions, function(error, info){
