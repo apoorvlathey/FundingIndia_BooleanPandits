@@ -58,15 +58,19 @@ body {
 
 /*Demo start*/
 #exampleSlider{
-    margin-bottom:10px;
-    padding:0;
+    margin-bottom:100px;
+	padding:0;
+	height:38vh;
+	
 }
 .sliderBox{
     text-align:center;
-    background-size:cover;
+    background-size:contain;
     color:rgba(255,255,255,0.9);
     font-weight:700;
-    padding:0;
+	padding:0;
+	height:38vh;
+	
 }
 .sliderBox h3 {
     font-size: 3em;
@@ -84,28 +88,31 @@ font-family: 'Source Sans Pro', sans-serif;
 }
 
 #sl1{
-    background:url(../images/banner.jpg) no-repeat 0px 0px;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	-ms-background-size:cover;
+    background:url(../images/slider1.jpg) no-repeat 0px 0px;
+	background-size:contain;
+	-webkit-background-size:contain;
+	-moz-background-size:contain;
+	-o-background-size:contain;
+	-ms-background-size:contain;
+	height:38vh;
 }
 #sl2{
-    background:url(../images/banner1.jpg) no-repeat 0px 0px;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	-ms-background-size:cover;
+    background:url(../images/slider2.jpg) no-repeat 0px 0px;
+	background-size:contain;
+	-webkit-background-size:contain;
+	-moz-background-size:contain;
+	-o-background-size:contain;
+	-ms-background-size:contain;
+	height:38vh;
 }
 #sl3{
-    background:url(../images/banner2.jpg) no-repeat 0px 0px;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	-ms-background-size:cover;
+    background:url(../images/slider3.jpg) no-repeat 0px 0px;
+	background-size:contain;
+	-webkit-background-size:contain;
+	-moz-background-size:contain;
+	-o-background-size:contain;
+	-ms-background-size:contain;
+	height:38vh;
 }
 /*Demo end*/
 .sliderArr {
