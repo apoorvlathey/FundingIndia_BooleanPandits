@@ -22,8 +22,8 @@ contract PartyFunding {
 
     /** @dev Function to start a new project.
       * @param title Title of the project to be created
-      * @param description Brief description about the project
-      * @param durationInDays Project deadline in days
+      * 
+      * 
       * @param amountToRaise Project goal in wei
       */
     function startProject(
