@@ -326,8 +326,10 @@ h3.agileinfo_sign  {
 /*-- //bootstrap-pop-up --*/
 /*-- banner --*/
 .banner1{
-    background: url(../images/banner2.jpg) no-repeat 0px 0px;
-    background-size: cover;
+    background: url(../images/slider8.jpg) no-repeat 0px 0px;
+	background-size: cover;
+	background-position: center;
+	width:100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
