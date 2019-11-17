@@ -1,27 +1,21 @@
 {
-  "name": "backend",
+  "name": "asdas",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "matic",
-    "js",
-    "node"
-  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "maticjs": "^1.0.0-beta.17",
     "mongoose": "^5.7.11",
     "nodemailer": "^6.3.1",
     "nodemon": "^1.19.4",
-    "maticjs": "1.0.0-beta.16",
-    "web3": "1.0.0-beta.34"
+    "web3": "^1.2.4"
   }
 }
