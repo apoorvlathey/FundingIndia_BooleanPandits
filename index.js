@@ -23,8 +23,8 @@ mongoose.connect('mongodb+srv://rachit2501:hacktiet@cluster0-djeid.mongodb.net/t
     .catch(()=>console.log("Failed to connect to database"));
 
 const Schema = mongoose.Schema({
-    AadharNumber : Number , 
-    PhoneNumber : Number
+    AadharNumber : String , 
+    email : String
 });
 
 const Schema2 = mongoose.Schema({
@@ -40,8 +40,8 @@ app.post('/register' , async (req , res)=>{
     // const AadharNumber = await bcrypt.hash(req.body.AadharNumber , salt);
     console.log(req.body);
     const user = {
-        AadharNumber : req.body.AadharNumber,
-        PhoneNumber : req.body.PhoneNumber
+        AadharNumber : req.body.adhaar,
+        email : req.body.email
     };
     const newUser = new model(user);
     newUser.save();
