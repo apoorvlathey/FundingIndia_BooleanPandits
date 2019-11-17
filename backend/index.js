@@ -76,6 +76,9 @@ app.get('/' , (req , res)=>{
 app.get('/form' , (req , res)=>{
     res.sendFile(__dirname + '/form.html');
 });
+app.get('/about' , (req , res)=>{
+    res.sendFile(__dirname + '/about.html');
+});
 
 app.get('/mail' , (req , res)=>{
     res.sendFile(__dirname + '/mail.html');
@@ -97,7 +100,8 @@ app.post('/blockchainTransfer' , (req , res)=>{
 });
 
 app.post('/blockchainBalance' , (req , res)=>{
-    maticBalance(req.body.address);
+    const balance = maticBalance(req.body.address);
+    console.log(balance);
 });
 
 const port = process.env.PORT || 5003;
