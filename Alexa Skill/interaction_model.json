@@ -1,0 +1,130 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "funding status",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "Balance",
+                    "slots": [
+                        {
+                            "name": "party",
+                            "type": "Party"
+                        }
+                    ],
+                    "samples": [
+                        "{party}",
+                        "{party} donation collection",
+                        "how many donations collected by {party}",
+                        "balance of {party}",
+                        "total collection of {party}",
+                        "donations of {party}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.MoreIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateSettingsIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NextIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageUpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PreviousIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollRightIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollLeftIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollUpIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "Party",
+                    "values": [
+                        {
+                            "id": "sam",
+                            "name": {
+                                "value": "Samajhwadi Party",
+                                "synonyms": [
+                                    "samajhwadi party",
+                                    "samajwadi party",
+                                    "spa"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "con",
+                            "name": {
+                                "value": "Congress",
+                                "synonyms": [
+                                    "congress party",
+                                    "congress"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "bjp",
+                            "name": {
+                                "value": "BJP",
+                                "synonyms": [
+                                    "bjp",
+                                    "bhartiye janta party"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "aap",
+                            "name": {
+                                "value": "AAP",
+                                "synonyms": [
+                                    "aap",
+                                    "aam aadmi party"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
