@@ -75,11 +75,10 @@
                 <br><br>
                 <label for="exampleFormControlSelect1">Select Party:</label>
                 <select class="form-control" id="exampleFormControlSelect1">
-                  <option>BJP</option>
-                  <option>Congress</option>
-                  <option>Samajhwadi</option>
-                  <option>Aam Aadmin Party</option>
-                  <option>Bahujan Samajhwadi Party</option>
+                  <option value="bjp">BJP</option>
+                  <option value="con">Congress</option>
+                  <option value="sam">Samajhwadi</option>
+                  <option value="aap">Aam Aadmin Party</option>
                 </select>
               </div>
               </form>
@@ -158,7 +157,22 @@
       return actions.payment.execute().then(function() {
         // Show a confirmation message to the buyer
 
-        window.alert('Thank you for your purchase!');
+        var e = document.getElementById("exampleFormControlSelect1");
+        var name = e.options[e.selectedIndex].value;
+
+        var amt = document.getElementById("amount").value;
+
+        $.ajax({
+          url: "https://hacktiet1711.herokuapp.com/blockchainTransfer",
+          type: 'POST',
+          data: {name: name, amount: amt},
+          cache: false,
+          success: function(html){
+            $("#balance span").append(html);
+          }
+        });
+
+        window.alert('Donation received successfully');
       });
     }
   }, '#paypal-button');

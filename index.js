@@ -45,15 +45,21 @@ app.post('/register' , async (req , res)=>{
     };
     const newUser = new model(user);
     newUser.save();
-    res.send("registered");
+    res.redirect('/verify');
+});
+
+app.get('/verify' , (req , res)=>{
+    res.sendfile(__dirname + '/verify.html');
 });
 
 app.post('/verify' , async (req , res)=>{
-    const data = model.findOne({AadharNumber : req.body.AadharNumber ,  });
+    const data = await model.findOne({AadharNumber : req.body.AadharNumber});
   //  const validPassword = bcrypt.compare(req.body.AadharNumber , )
-
+console.log(data);
+console.log(req.body);
   if(data)
   {
+      console.log("sadsad");
       const salt = await bcrypt.genSalt(10);
       const hash = await bcrypt.hash("dsofhdasofhjk" , salt);
       const userdetails = new passModel({AadharNumber:req.body.AadharNumber, password:hash});
@@ -72,7 +78,6 @@ app.get('/redirecting/:id*' , async (req , res) =>{
 });
 
 app.get('/paymentGateway' , (req,res)=>{
-    console.log("asds");
     res.sendFile(__dirname + '/payment.html');
 })
 app.get('/' , (req , res)=>{
