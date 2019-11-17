@@ -95,7 +95,12 @@ app.get('/about' , (req , res)=>{
 
 app.get('/mail' , (req , res)=>{
     res.sendFile(__dirname + '/mail.html');
-})
+});
+
+app.get('/bal/:id' , async (req ,res)=>{
+    const balance = await maticBalance(req.params.id);
+    res.send(balance);
+});
 
 app.post('/blockchainTransfer' , (req , res)=>{
     const name = req.body.name;
