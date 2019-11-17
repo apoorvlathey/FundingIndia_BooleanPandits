@@ -23,6 +23,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,900" rel="stylesheet">
 
+<style>
+
+</style>
+
 </head>	
 <body>
 <!-- banner -->
@@ -135,41 +139,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container"> 
 			<div class="w3_agile_team_grid">
 				<div class="w3_agile_team_grid_left">
-					<h3 class="w3l_header w3_agileits_header"><span>BJP</span></h3>
+					<h3 class="w3l_header w3_agileits_header" id="partyHead"><span></span></h3>
 		             
 
 				</div>
 			</div>
 			<div class="agile_team_grids_top">
 
-				<div class="col-md-6 w3l_stats_bottom_grid_right">
-					<div class='bar_group'>
+				<div class="col-md-6 w3l_stats_bottom_grid_right" id="gcontainer">
+					<div class='bar_group' id="bar">
 						
-						<div class='bar_group__bar thin elastic' label='Funds Details' value='25000000'>
-							<div class='w3ls_bar_group__bar_pos'>
-								<p>50%</p>
+						<div class='bar_group__bar thin elastic' label='Funds Details'id="graph" value="">
+							<div class=''>
+									<p id="percentage"></p>
+									<progress id="bar2" value="22" max="100" style="width: 33.7em;height: 30px;"></progress> 
+									
 							</div>
 						</div>
 						
-						<div class='bar_group__bar thin elastic' value='50000000' style="display:none">
-							<div class='w3ls_bar_group__bar_pos'>
+						<div class='bar_group__bar thin elastic' id="total"value="" style="display:none">
+							
 								<p>100%</p>
-							</div>
+							
 						</div>
 					</div>
 				</div>
 				<div class="col-md-6 agileinfo_mail_grid_left">
 					<form action="#" method="post">
-						<span class="input input--nariko">
-								<span class="input__label-content input__label-content--nariko"id="party">BJP</span>
-						</span>
+						
 						<span class="input input--nariko">
 							
 								<span class="input__label-content input__label-content--nariko" id="account">Account No.</span>
 						</span>
 						<span class="input input--nariko">
 							
-								<span class="input__label-content input__label-content--nariko"id="balance">Balance </span>
+								<span class="input__label-content input__label-content--nariko"id="balance">Balance <span></span> </span>
 						</span>
 						<span class="input input--nariko">
 							
@@ -177,7 +181,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</span>
 						<span class="input input--nariko">
 							
-								<span class="input__label-content input__label-content--nariko"id="wesite"><a href="http://">Nirvachan Aayog</a> </span>
+								<span class="input__label-content input__label-content--nariko"id="website"><a href="http://">Official Website</a> </span>
 						</span>
 						
 					</form>
@@ -273,6 +277,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								
 			});
 	</script>
+	<!-- script to display party details -->
 <!-- //here ends scrolling icon -->
+<script>
+	var account='0xA09aB1aBeCb91CaC38c3240912D2A1b31e22F147';
+	let address=`https://explorer.testnet2.matic.network/address/${account}/`
+	
+	var balance='25345666';
+	var website='https://www.bjp.org/'
+	$('#balance span').append(`:          ${balance}`);
+	$('#transactions a').attr('href',address);
+	$('#website a').attr('href',website);
+	$('#account').append(`:          ${account}`);
+	$('#partyHead span').append(`<a href="${website}" >BJP</a>`);
+	$('#partyHead span a').css('color','#000');
+	// console.log($('#graph').attr('value'));
+	$('#graph').attr('value',balance);
+	$('#total').attr('value','50000000');
+	
+	$('#percentage').text(`${parseInt(balance)/parseInt($('#total').attr('value'))*100}%`)
+	$('#bar2').attr('value',`${parseInt(balance)/parseInt($('#total').attr('value'))*100}`);
+</script>
 </body>
 </html>
