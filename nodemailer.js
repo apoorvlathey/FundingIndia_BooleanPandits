@@ -1,5 +1,5 @@
 var nodemailer = require('nodemailer');
-const link  = "localhost:5001";
+const link  = "https://hacktiet1711.herokuapp.com";
 
 function mailer(email , msg){
     let transporter = nodemailer.createTransport({

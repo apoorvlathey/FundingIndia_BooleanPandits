@@ -53,7 +53,7 @@ app.get('/verify' , (req , res)=>{
 });
 
 app.post('/verify' , async (req , res)=>{
-    const data = await model.findOne({AadharNumber : req.body.AadharNumber});
+    const data = await model.findOne({AadharNumber : req.body.adhaar});
   //  const validPassword = bcrypt.compare(req.body.AadharNumber , )
 console.log(data);
 console.log(req.body);
@@ -64,9 +64,11 @@ console.log(req.body);
       const hash = await bcrypt.hash("dsofhdasofhjk" , salt);
       const userdetails = new passModel({AadharNumber:req.body.AadharNumber, password:hash});
       mailer(req.body.email , hash);
-      res.send("emailSend");
+      res.send("Use the link send to you email address to procees furthur");
       userdetails.save();
   }
+  else
+  res.send('Wrong Input Try Again');
 });
 
 
