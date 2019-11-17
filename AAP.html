@@ -283,12 +283,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	var account='0xA7587b401860b95e0135a3d15b6fc76b9C8E4157';
 	let address=`https://explorer.testnet2.matic.network/address/${account}/`
 	$.ajax({
-		 url: "http://localhost:5003/blockchainBalance",
+		 url: "https://hacktiet1711.herokuapp.com/blockchainBalance",
 		 type: 'POST',
 		 data: {address : account},
  		cache: false,
 		success: function(html){
  		   $("#balance span").append(html);
+
+			 $('#percentage').text(`${parseInt(html)/parseInt($('#total').attr('value'))*100}%`)
+	     $('#bar2').attr('value',`${parseInt(html)/parseInt($('#total').attr('value'))*100}`);
   }
 });
 	var balance='25345666';
@@ -302,9 +305,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	// console.log($('#graph').attr('value'));
 	$('#graph').attr('value',balance);
 	$('#total').attr('value','50000000');
-	
-	$('#percentage').text(`${parseInt(balance)/parseInt($('#total').attr('value'))*100}%`)
-	$('#bar2').attr('value',`${parseInt(balance)/parseInt($('#total').attr('value'))*100}`);
 </script>
 </body>
 </html>
