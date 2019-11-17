@@ -22,7 +22,7 @@ matic.balanceOfERC20(from, tokenAddress, {
   // parent: true, // For token balance on Main network (false for Matic Network)
 }).then((hash) => { 
   // action on Transaction success
-  console.log(hash) // eslint-disable-line
+  return hash // eslint-disable-line
 })
 }
 module.exports = maticBal;
