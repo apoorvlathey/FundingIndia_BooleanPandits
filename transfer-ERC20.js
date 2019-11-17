@@ -3,7 +3,7 @@ const config = require('./config');
 
 function maticTrans(_address, _amount){
 
-const amount = _amount * 10^18
+const amount = _amount
 const recipient = _address
 
 const from = config.FROM_ADDRESS // from address
